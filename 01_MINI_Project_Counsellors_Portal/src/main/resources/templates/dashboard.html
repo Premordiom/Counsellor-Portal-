@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Counsellor Pageo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+ <style>
+  body {
+    background-image: url('/images/Vector.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.88);
+    padding: 30px;
+    margin-top: 100px;
+    border-radius: 10px;
+    width: fit-content;
+  }
+</style>
+
+  </head>
+  <body>
+  
+
+  
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+   <form action="/login" method="post" style="display:inline;">
+    
+</form>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="enquiry-page">Add Enquiry</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/view-enq">View Enquiry</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="logout">Logout</a>
+        </li>
+        
+            
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+       
+    </div>
+  </div>
+</nav>
+ 
+
+  
+  <div class= "container">
+ <center> <h1>Dashboard Info</h1></div></center>  
+   <center>
+  <table>
+         <tr>
+              <td>Total Enquiry </td>
+              <td th:text="${dashboardDto.totalEnqCnt}"></td>
+			
+         </tr>
+         <tr>
+              <td>Open Enquiry </td>
+              <td th:text="${dashboardDto.openEnqCnt}"></td>
+			
+         </tr>
+         <tr>
+              <td>Enroled Enquiry </td>
+              <td th:text="${dashboardDto.enrolledEnqCnt}"></td>
+			
+         </tr>
+         <tr>
+              <td>Lost Enquiry </td>
+              <td th:text="${dashboardDto.lostEnqCnt}"></td>
+			
+         </tr>
+  </table>
+   </center>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+ 
+</html>

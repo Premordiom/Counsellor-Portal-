@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Counsellor Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ <style>
+  body {
+    background-image: url('/images/Vector.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.88);
+    padding: 30px;
+    margin-top: 100px;
+    border-radius: 10px;
+    width: fit-content;
+  }
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <form action="/login" method="post" style="display:inline;">
+    
+</form>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active" href="/enquiry-page">Add Enquiry</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/view-enq">View Enquiry</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="logout">Logout</a>
+        </li>
+
+        
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <center>
+    <h1>Add Enquiry Here</h1>
+
+    <font style="color:red;">
+      <p th:text="${emsg}"></p>
+    </font>
+
+    <p th:if="${smsg}" th:text="${smsg}"
+       style="color:green; text-align:center;"></p>
+  </center>
+
+  <form th:action="@{/add-enquiry}" th:object="${enquiry}" method="post">
+
+    <table>
+
+      <tr>
+        <td>Student Name</td>
+        <td><input type="text" th:field="*{stuName}"></td>
+      </tr>
+
+      <tr>
+        <td>Student Mobile Number</td>
+        <td><input type="tel" th:field="*{stuPhn}"></td>
+      </tr>
+
+      <tr>
+        <td>Class Mode</td>
+        <td>
+          <select th:field="*{classMode}">
+            <option value="">-Select-</option>
+            <option value="Classroom">Classroom</option>
+            <option value="Online">Online</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Course</td>
+        <td>
+          <select th:field="*{course}">
+            <option value="">-Select-</option>
+            <option value="DevOps">DevOps</option>
+            <option value="Core Java">Core Java</option>
+            <option value="FullStack Java">FullStack Java</option>
+            <option value="Java Real Time Project">Java Real time Project</option>
+            <option value="Python">Python</option>
+            <option value="C & C++">C & C++</option>
+            <option value=".Net">.Net</option>
+            <option value="Web Devlopment">Web Devlopment</option>
+            <option value="Java FX">Java FX</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Enquiry Status</td>
+        <td>
+          <select th:field="*{enqStatus}">
+            <option value="">-Select-</option>
+            <option value="Open">Open</option>
+            <option value="Lost">Lost</option>
+            <option value="Enrolled">Enrolled</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td>
+          <input type="submit" value="Save" class="btn btn-info">
+        </td>
+      </tr>
+
+    </table>
+
+  </form>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
